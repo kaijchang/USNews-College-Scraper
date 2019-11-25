@@ -1,4 +1,4 @@
-institution.displayName,institution.schoolType,institution.aliasNames,institution.state,institution.city,institution.zip,institution.region,institution.isPublic,institution.institutionalControl,ranking.displayRank,ranking.sortRank,ranking.isTied,searchData.actAvg.rawValue,searchData.percentReceivingAid.rawValue,searchData.acceptanceRate.rawValue,searchData.tuition.rawValue,searchData.hsGpaAvg.rawValue,searchData.engineeringRepScore.rawValue,searchData.parentRank.rawValue,searchData.enrollment.rawValue,searchData.businessRepScore.rawValue,searchData.satAvg.rawValue,searchData.costAfterAid.rawValue,searchData.testAvgs.displayValue.0.value,searchData.testAvgs.displayValue.1.value
+
 Abilene Christian University,regional-universities-west,ACU,TX,Abilene,79699,west,True,private,#12,12,True,21,66,57,36300,3.6,2.5,,3544,2.1,1040,27650.0,1040-1230,21-27
 Abraham Baldwin Agricultural College,regional-colleges-south,,GA,Tifton,31793,south,True,public,#65-#84,-1,False,17,,70,,,,,,,920,,920-1110,17-22
 Academy of Art University,regional-universities-west,,CA,San Francisco,94105,west,True,proprietary,Unranked,-2,False,,,100,29190,,,,7051,,,,N/A,N/A
