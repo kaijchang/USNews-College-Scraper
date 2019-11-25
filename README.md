@@ -15,6 +15,7 @@ FIELDS = [
     'institution.zip',
     'institution.region',
     'institution.isPublic',
+    'institution.institutionalControl',
     'ranking.displayRank',
     'ranking.sortRank',
     'ranking.isTied',
