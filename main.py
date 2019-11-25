@@ -12,6 +12,7 @@ FIELDS = [
     'institution.zip',
     'institution.region',
     'institution.isPublic',
+    'ranking.displayRank',
     'ranking.sortRank',
     'ranking.isTied',
     'searchData.actAvg.rawValue',
