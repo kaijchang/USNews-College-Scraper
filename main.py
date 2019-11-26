@@ -14,6 +14,7 @@ FIELDS = [
     'institution.region',
     'institution.isPublic',
     'institution.institutionalControl',
+    'institution.primaryPhotoCard',
     'ranking.displayRank',
     'ranking.sortRank',
     'ranking.isTied',
@@ -32,7 +33,7 @@ FIELDS = [
     'searchData.testAvgs.displayValue.1.value'
 ]
 
-DETAILED = False
+DETAILED = True
 DETAIL_FIELDS = [
     'School Type',
     'Year Founded',
@@ -92,6 +93,6 @@ def fetch_results_page(url, writer):
 
 with open('data.csv', 'w') as data_file:
     data_writer = csv.writer(data_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    data_writer.writerow(FIELDS + DETAIL_FIELDS if DETAILED else [])
+    data_writer.writerow(FIELDS + (DETAIL_FIELDS if DETAILED else []))
     fetch_results_page('https://www.usnews.com/best-colleges/api/search?_sort=schoolName&_sortDirection=asc&_page=1',
                        data_writer)
