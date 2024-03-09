@@ -14,7 +14,7 @@ FIELDS = [
     'institution.region',
     'institution.isPublic',
     'institution.institutionalControl',
-    'institution.primaryPhotoCard',
+    'institution.primaryPhotoCardThumb',
     'ranking.displayRank',
     'ranking.sortRank',
     'ranking.isTied',
@@ -33,7 +33,7 @@ FIELDS = [
     'searchData.testAvgs.displayValue.1.value'
 ]
 
-DETAILED = True
+DETAILED = False
 DETAIL_FIELDS = [
     'School Type',
     'Year Founded',
@@ -45,7 +45,7 @@ DETAIL_FIELDS = [
 ]
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:67.0) Gecko/20100101 Firefox/67.0'
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0'
 }
 
 
@@ -53,9 +53,9 @@ def traverse(root, path):
     value = root
     for segment in path.split('.'):
         if segment.isdigit():
-            value = value[int(segment)]
+            value = value[int(segment)] if len(value) > int(segment) else None
         else:
-            value = value[segment]
+            value = value.get(segment, None)
     return value
 
 
@@ -91,7 +91,7 @@ def fetch_results_page(url, writer):
         print('Done!')
 
 
-with open('data.csv', 'w') as data_file:
+with open('data-detailed.csv' if DETAILED else 'data.csv', 'w') as data_file:
     data_writer = csv.writer(data_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     data_writer.writerow(FIELDS + (DETAIL_FIELDS if DETAILED else []))
     fetch_results_page('https://www.usnews.com/best-colleges/api/search?_sort=schoolName&_sortDirection=asc&_page=1',
