@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-import json
 import csv
 
 FIELDS = [
@@ -45,7 +44,7 @@ DETAIL_FIELDS = [
 ]
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0'
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:138.0) Gecko/20100101 Firefox/138.0'
 }
 
 
@@ -59,10 +58,10 @@ def traverse(root, path):
     return value
 
 
-def fetch_results_page(url, writer):
+def fetch_results_page(url, writer: csv.writer):
     print('Fetching ' + url + '...')
     resp = requests.get(url, headers=HEADERS)
-    json_data = json.loads(resp.text)
+    json_data = resp.json()
     for school in json_data['data']['items']:
         row = []
         for field in FIELDS:
